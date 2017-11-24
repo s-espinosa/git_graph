@@ -1,1 +1,46 @@
 <h1>Welcome, <%= @user.username %></h1>
+
+<%= image_tag @user.avatar_url %>
+
+<h1>Followers</h1>
+
+<% @user.followers.each do |follower| %>
+  <div>
+    <p><%= link_to follower.name, follower.url %></p>
+    <%= image_tag follower.avatar_url %>
+  </div>
+<% end %>
+
+<h1>Following</h1>
+
+<% @user.following.each do |follower| %>
+  <div>
+    <p><%= link_to follower.name, follower.url %></p>
+    <%= image_tag follower.avatar_url %>
+  </div>
+<% end %>
+
+<h1>Starred Repos</h1>
+
+<ul>
+  <% @user.starred_repositories.each do |repo| %>
+    <li><%= link_to repo.name, repo.url %></li>
+  <% end %>
+</ul>
+
+<h1>Repositories</h1>
+
+<ul>
+  <% @user.repositories.each do |repo| %>
+    <li><%= link_to repo.name, repo.url %></li>
+  <% end %>
+</ul>
+
+<h1>Organizations</h1>
+
+<ul>
+  <% @user.organizations.each do |repo| %>
+    <li><%= link_to repo.name, repo.url %></li>
+  <% end %>
+</ul>
+
